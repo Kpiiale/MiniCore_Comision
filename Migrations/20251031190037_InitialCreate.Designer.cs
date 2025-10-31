@@ -12,7 +12,7 @@ using MiniCore_Comision.Models;
 namespace MiniCore_Comision.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251031173235_InitialCreate")]
+    [Migration("20251031190037_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
