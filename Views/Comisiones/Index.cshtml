@@ -1,0 +1,40 @@
+﻿@model List<MiniCore_Comision.Models.ResumenComisionViewModel>
+@{
+    ViewData["Title"] = "Resumen de Comisiones";
+}
+
+<h2 class="text-center">Resumen de Comisiones</h2>
+
+<form method="get" asp-action="Index" class="mb-3">
+    <div class="row g-2 justify-content-center">
+        <div class="col-auto">
+            <input type="number" step="0.01" name="minComision" value="@ViewBag.MinComision" class="form-control" placeholder="Filtrar por comisión mínima ($)" />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <a href="/Comisiones/Index" class="btn btn-secondary">Limpiar</a>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Vendedor</th>
+            <th>Total Vendido</th>
+            <th>% Comisión</th>
+            <th>Total Comisión</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreVendedor</td>
+                <td>$@item.TotalVentas.ToString("N2")</td>
+                <td>@(item.PorcentajeComision * 100)%</td>
+                <td>$@item.TotalComision.ToString("N2")</td>
+            </tr>
+        }
+    </tbody>
+</table>
